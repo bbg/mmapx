@@ -217,4 +217,8 @@
     border-radius: var(--radii-sm);
     padding: var(--spacing-3);
   }
+
+  hr {
+    border-color: rgb(0 0 0 / 20%);
+  }
 }
