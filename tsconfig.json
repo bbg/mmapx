@@ -1,0 +1,31 @@
+{
+  "include": ["src", "styled-system", "types.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "types": ["@types/wicg-file-system-access", "@cloudflare/workers-types"],
+    "paths": {
+      "~/*": ["src/*"],
+      "#components/*": ["src/components/*"],
+      "#styled/*": ["styled-system/*"],
+      "#utils/*": ["src/utils/*"],
+      "#schemas/*": ["src/schemas/*"],
+      "#hooks/*": ["src/hooks/*"]
+    }
+  }
+}

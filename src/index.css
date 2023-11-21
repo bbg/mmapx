@@ -1,0 +1,207 @@
+@layer reset, base, tokens, recipes, utilities;
+@import "reactflow/dist/base.css";
+
+.react-flow__controls {
+  box-shadow: none;
+}
+
+.react-flow__controls-button {
+  width: var(--spacing-5);
+  height: var(--spacing-5);
+  border: none;
+  background-color: var(--colors-neutral-100);
+  fill: var(--colors-neutral-600);
+  border-radius: var(--radii-sm);
+  margin-bottom: var(--spacing-1);
+}
+
+.react-flow__controls-button:hover {
+  background-color: var(--colors-neutral-950);
+  fill: var(--colors-neutral-100);
+}
+
+.react-flow__controls-button:last-child {
+  margin-bottom: 0;
+}
+
+.react-flow__edge-path {
+  stroke: var(--colors-neutral-200);
+}
+
+.react-flow__connection-path {
+  stroke: var(--colors-blue-600);
+}
+
+.react-flow__edge-text {
+  font-size: var(--font-sizes-xs);
+  fill: var(--colors-neutral-500);
+}
+
+.react-flow__resize-control.handle {
+  width: var(--spacing-2);
+  height: var(--spacing-2);
+  border: none;
+  background-color: var(--colors-blue-600);
+}
+
+.react-flow__resize-control.line {
+  border-color: var(--colors-blue-600);
+}
+
+.react-flow__handle {
+  background-color: var(--colors-neutral-500);
+}
+
+.react-flow__handle-left {
+  left: -15px;
+  background-color: var(--colors-neutral-200);
+  width: var(--spacing-2);
+  height: var(--spacing-2);
+  border-radius: var(--radii-full);
+}
+
+.react-flow__handle-right {
+  right: -15px;
+  background-color: var(--colors-neutral-200);
+  width: var(--spacing-2);
+  height: var(--spacing-2);
+  border-radius: var(--radii-full);
+}
+
+.react-flow__handle-top {
+  top: -15px;
+  background-color: var(--colors-neutral-200);
+  width: var(--spacing-2);
+  height: var(--spacing-2);
+  border-radius: var(--radii-full);
+}
+
+.react-flow__handle-bottom {
+  bottom: -15px;
+  background-color: var(--colors-neutral-200);
+  width: var(--spacing-2);
+  height: var(--spacing-2);
+  border-radius: var(--radii-full);
+}
+
+.react-flow__handle-left:hover,
+.react-flow__handle-left:focus,
+.react-flow__handle-right:hover,
+.react-flow__handle-right:focus,
+.react-flow__handle-top:hover,
+.react-flow__handle-top:focus,
+.react-flow__handle-bottom:hover,
+.react-flow__handle-bottom:focus {
+  background-color: var(--colors-blue-600);
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.react-flow__edge:focus .react-flow__edge-path,
+.react-flow__edge:focus-visible .react-flow__edge-path,
+.react-flow__edge.selected {
+  stroke: var(--colors-blue-600);
+  color: var(--colors-blue-600);
+}
+
+.react-flow__handle-connecting {
+  background-color: var(--colors-blue-600);
+}
+
+.react-flow__node {
+  /* z-index: -1 !important; */
+  width: var(--spacing-96);
+  /* padding: var(--spacing-3); */
+  box-shadow: none !important;
+  border-radius: var(--radii-sm);
+}
+
+.react-flow__node.dragging {
+}
+
+.react-flow__node-text {
+  border-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  padding: var(--spacing-5);
+  /* background-color: var(--colors-slate-50); */
+  min-width: var(--spacing-96);
+}
+
+.control-panel {
+  display: flex;
+  column-gap: var(--spacing-2);
+}
+
+/* .react-flow__edges {
+  padding: 0 var(--spacing-2);
+} */
+
+.react-flow__edge-step {
+  color: var(--colors-gray-200);
+}
+
+@scope (.react-flow__node-text) {
+  h1 {
+    font-size: var(--font-sizes-xl);
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: var(--font-sizes-lg);
+    font-weight: 500;
+  }
+
+  table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;
+  }
+
+  thead {
+    background-color: rgb(0 0 0 / 5%);
+  }
+
+  tr {
+    background-color: transparent;
+    border-top: 1px solid hsla(210, 18%, 87%, 1);
+  }
+
+  tr:nth-child(2n) {
+    background-color: rgb(0 0 0 / 5%);
+  }
+
+  td,
+  th {
+    padding: 6px 13px;
+    border: 1px solid rgb(0 0 0 / 10%);
+  }
+
+  th {
+    font-weight: 600;
+  }
+
+  table img {
+    background-color: transparent;
+  }
+
+  code {
+    background-color: rgb(0 0 0 / 5%);
+    padding: 1px 4px 2px 4px;
+    border-radius: var(--radii-sm);
+  }
+
+  ol,
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style: disc;
+    margin-left: var(--spacing-8);
+  }
+
+  li {
+    width: 100%;
+  }
+}

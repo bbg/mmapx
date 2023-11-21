@@ -1,0 +1,11 @@
+{
+  "include": ["vite.config.ts", "src/worker.ts", "types.d.ts"],
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowSyntheticDefaultImports": true,
+    "types": ["@cloudflare/workers-types"]
+  }
+}
