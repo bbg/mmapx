@@ -79,6 +79,12 @@ export const AETextNode = block(() => {
             borderColor: getHex(values.color.replace("200", "300")),
             backgroundColor: getHex(values.color),
             color: getHex(values.color.replace("200", "800")),
+            ...(getSelectedNode
+              ? {
+                  width: getSelectedNode.width,
+                  height: getSelectedNode.height,
+                }
+              : {}),
           }
         : {},
     };
