@@ -197,8 +197,15 @@
   ul {
     display: flex;
     flex-direction: column;
-    list-style: disc;
     margin-left: var(--spacing-8);
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: number;
   }
 
   li {
