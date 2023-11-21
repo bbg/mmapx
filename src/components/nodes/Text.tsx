@@ -40,6 +40,9 @@ export const TextNode: FC<NodeProps<NodeData>> = block(
     return (
       <Fragment>
         <Stack
+          w="full"
+          h="full"
+          overflow="hidden"
           dangerouslySetInnerHTML={content}
           onDoubleClick={onDoubleClick}
         />
