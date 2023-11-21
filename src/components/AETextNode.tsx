@@ -27,12 +27,6 @@ import { isObject, pick, uid } from "radash";
 import { FullScreen } from "#components/FullScreen";
 import { Textarea } from "#components/ui/Textarea";
 
-const label = "Add Text Node";
-const title = "Add Text Node";
-const description = "Type the content of the node you want to add and save it.";
-const cancelBtn = "Cancel";
-const submitBtn = "Submit";
-
 export const AETextNode = block(() => {
   const { setNodes } = useReactFlow();
   const [modalVisible, setModalVisible] = useAtom(addTextModalVisible);
@@ -112,14 +106,14 @@ export const AETextNode = block(() => {
             variant="toolbar"
             size="md"
             onClick={() => setModalVisible(true)}
-            aria-label={label}
+            aria-label="Add Text Node"
             data-splitbee-event="Click AE Text Node Button"
           >
             <IconTextPlus size={20} />
           </Button>
         </Tooltip.Trigger>
         <Tooltip.Positioner>
-          <Tooltip.Content>{label}</Tooltip.Content>
+          <Tooltip.Content>Add Text Node</Tooltip.Content>
         </Tooltip.Positioner>
       </Tooltip.Root>
       <Dialog.Root
@@ -142,8 +136,14 @@ export const AETextNode = block(() => {
                     size: "lg",
                   })}
             >
-              <Dialog.Title>{title}</Dialog.Title>
-              <Dialog.Description>{description}</Dialog.Description>
+              <Dialog.Title>
+                {isObject(getSelectedNode) ? "Edit Text Node" : "Add Text Node"}
+              </Dialog.Title>
+              <Dialog.Description>
+                {isObject(getSelectedNode)
+                  ? "You can save your node content after editing it."
+                  : "Type the content of the node you want to add and save it."}
+              </Dialog.Description>
               <Formik
                 initialValues={initialValues}
                 validationSchema={schema}
@@ -190,7 +190,7 @@ export const AETextNode = block(() => {
                           size="md"
                           type="reset"
                         >
-                          {cancelBtn}
+                          Cancel
                         </Button>
                       </Dialog.CloseTrigger>
                       <Button
@@ -199,7 +199,7 @@ export const AETextNode = block(() => {
                         type="submit"
                         disabled={isSubmitting}
                       >
-                        {submitBtn}
+                        Save
                       </Button>
                     </HStack>
                   </Form>
