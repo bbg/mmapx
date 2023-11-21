@@ -204,4 +204,10 @@
   li {
     width: 100%;
   }
+
+  blockquote {
+    background-color: rgb(0 0 0 / 5%);
+    border-radius: var(--radii-sm);
+    padding: var(--spacing-3);
+  }
 }
