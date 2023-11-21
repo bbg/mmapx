@@ -13,6 +13,7 @@ import { marked } from "marked";
 
 type NodeData = {
   content: string;
+  color: string;
 };
 
 export const TextNode: FC<NodeProps<NodeData>> = block(
@@ -45,6 +46,7 @@ export const TextNode: FC<NodeProps<NodeData>> = block(
           overflow="hidden"
           dangerouslySetInnerHTML={content}
           onDoubleClick={onDoubleClick}
+          data-color={data.color}
         />
         <NodeResizer isVisible={selected} />
         <Handle {...HANDLE_LEFT} />
