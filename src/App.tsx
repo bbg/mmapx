@@ -149,6 +149,7 @@ function App() {
         onEdgeContextMenu={onEdgeContextMenu}
         onPaneClick={onOutsideClick}
         onEdgeClick={onOutsideClick}
+        onNodeClick={onOutsideClick}
         onConnectStart={onConnectStart}
         onConnectEnd={onConnectEnd}
         elevateEdgesOnSelect
