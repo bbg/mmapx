@@ -7,17 +7,51 @@ import { Tooltip } from "#components/ui/Tooltip";
 import { IconPhotoDown } from "@tabler/icons-react";
 import { memo, useCallback } from "react";
 import * as htmlToImage from "html-to-image";
-import { useNodes } from "reactflow";
+import {
+  getRectOfNodes,
+  getTransformForBounds,
+  useNodes,
+  useReactFlow,
+} from "reactflow";
 
 const label = "Save as image";
+const imageWidth = 1024;
+const imageHeight = 768;
+
+type Board = HTMLDivElement | null;
 
 export const SaveToImage = memo(() => {
   const nodes = useNodes();
-  const board = document.querySelector(".react-flow__viewport") as HTMLElement;
+  const { getNodes } = useReactFlow();
+  const board: Board = document.querySelector(".react-flow__viewport");
 
   const onSaveToImage = useCallback(async () => {
+    const nodesBounds = getRectOfNodes(getNodes());
+    const transform = getTransformForBounds(
+      nodesBounds,
+      imageWidth,
+      imageHeight,
+      0.5,
+      2,
+    );
     if (board) {
-      const source = await htmlToImage.toBlob(board);
+      const source = await htmlToImage.toBlob(board, {
+        cacheBust: true,
+        backgroundColor: "white",
+        width: imageWidth,
+        height: imageHeight,
+        style: {
+          width: `${imageWidth}px`,
+          height: `${imageHeight}px`,
+          transform: `
+            translate(
+              ${transform[0]}px, 
+              ${transform[1]}px) 
+              scale(${transform[2]}
+            )
+          `,
+        },
+      });
       if (!source) return;
       const handle = await window.showSaveFilePicker({
         suggestedName: "untitled.png",
@@ -35,7 +69,7 @@ export const SaveToImage = memo(() => {
       await writableStream.write(blob);
       await writableStream.close();
     }
-  }, [board]);
+  }, [board, getNodes]);
 
   return (
     <Tooltip.Root
