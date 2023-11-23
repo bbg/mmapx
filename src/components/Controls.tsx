@@ -6,7 +6,7 @@ import { memo } from "react";
 import { Panel } from "reactflow";
 import { motion } from "framer-motion";
 import { hstack } from "#styled/patterns";
-import { AETextNode } from "#components/AETextNode";
+import { TextNodeEditor } from "~/components/TextNodeEditor";
 import { OpenFile } from "#components/OpenFile";
 import { ResetBoard } from "#components/ResetBoard";
 import { SaveTo } from "#components/SaveTo";
@@ -36,7 +36,7 @@ export const Controls = memo(() => {
         <SaveTo />
         <SaveToImage />
         <ResetBoard />
-        <AETextNode />
+        <TextNodeEditor />
       </Panel>
     </motion.div>
   );

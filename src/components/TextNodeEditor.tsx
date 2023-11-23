@@ -27,7 +27,7 @@ import { isObject, pick, uid } from "radash";
 import { FullScreen } from "#components/FullScreen";
 import { Textarea } from "#components/ui/Textarea";
 
-export const AETextNode = block(() => {
+export const TextNodeEditor = block(() => {
   const { setNodes } = useReactFlow();
   const [modalVisible, setModalVisible] = useAtom(addTextModalVisible);
   const [fullscreen, setFullScreen] = useAtom(addTextModalFullScreen);
@@ -143,12 +143,12 @@ export const AETextNode = block(() => {
                   })}
             >
               <Dialog.Title>
-                {isObject(getSelectedNode) ? "Edit Text Node" : "Add Text Node"}
+                {isObject(getSelectedNode) ? "Edit Text Node" : "Create Text Node"}
               </Dialog.Title>
               <Dialog.Description>
                 {isObject(getSelectedNode)
                   ? "You can save your node content after editing it."
-                  : "Type the content of the node you want to add and save it."}
+                  : "Type the content of the node you want to create and save it."}
               </Dialog.Description>
               <Formik
                 initialValues={initialValues}
